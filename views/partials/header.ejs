@@ -1,6 +1,20 @@
 <html>
 <head>
-  <title><%=title%></title>
+  <title><%=sitename%></title>
   <link href="/css/typography.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+  <a href="/"><h1><%=sitename%></h1></a>
+  <h2><%=siteslogan%></h2>
+
+  <ul>
+    <li><a href="/login">Login</a></li>
+    <li>
+      Signup
+      <form action="/auth/signup" name="signUpForm" method="post">
+        <input name="username" id="username" placeholder="Username"/>
+        <input name="password" id="password" placeholder="Password" />
+        <input type="submit" value="Sign up"/>
+      </form>
+    </li>
+  </ul>

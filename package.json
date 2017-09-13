@@ -4,13 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joshua Hackett",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.1",
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.11",
+    "passport": "^0.4.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
