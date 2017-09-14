@@ -2,12 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const sesson = require('express-session');
-
-// Get the admin routes file
-const adminRouter = require('./routes/adminRoutes.js')();
-const postRouter = require('./routes/postRoutes.js')();
-const authRouter = require('./routes/authRoutes.js')();
+const session = require('express-session');
 
 // The port, with a default of 3000
 const port = process.env.port || 3000;
@@ -17,9 +12,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(session({secret: 'blogsecret'}));
-require('./config/passport.js')(app);
+require('./config/passport')(app);
 
-// Use admin routes
+// Get the route files...
+const adminRouter = require('./routes/adminRoutes.js')();
+const postRouter = require('./routes/postRoutes.js')();
+const authRouter = require('./routes/authRoutes.js')();
+// ...and register them
 app.use('/auth', authRouter);
 app.use('/admin', adminRouter);
 app.use('/', postRouter);
